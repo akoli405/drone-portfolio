@@ -1,0 +1,299 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0b0b0b;
+  color: #fff;
+}
+
+.hero {
+  min-height: 100vh;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+
+}
+
+/* HERO NAVBAR OVERLAY */
+/* .hero-navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: transparent;
+  padding: 1rem 0;
+} */
+.hero-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  padding: 1rem 0;
+  transition: background 0.3s ease;
+}
+
+.hero-navbar .navbar-brand,
+.hero-navbar .nav-link {
+  color: #fff;
+}
+
+.hero-navbar .nav-link {
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+.hero-navbar .nav-link:hover {
+  opacity: 0.8;
+}
+/* Navbar when scrolled */
+.hero-navbar.scrolled {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.3s ease;
+}
+
+/* Video */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Dark overlay for readability */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 2;
+}
+
+/* Text content */
+.hero .container {
+  z-index: 3;
+}
+
+.work-section {
+  background-color: #0f0f0f;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.project-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Hover effect (desktop) */
+.project-card:hover video {
+  transform: scale(1.05);
+}
+
+/* Scroll animation base */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  transition-delay: var(--delay, 0s);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0)
+  );
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-info h5 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.project-info span {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Show on hover (desktop) */
+.project-card:hover .project-info {
+  opacity: 1;
+}
+
+
+.about-section h2 {
+  letter-spacing: 0.5px;
+}
+
+.about-section p:first-of-type {
+  font-size: 1.1rem;
+  color: #eee;
+}
+
+.contact-section {
+  background: radial-gradient(
+    circle at top,
+    #1a1a1a,
+    #000
+  );
+}
+
+.contact-section p {
+  color: #ccc;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-section .btn {
+  min-width: 180px;
+}
+.contact-content {
+  opacity: 0;
+  transform: none;
+}
+
+/* PARALLAX SECTION */
+.parallax-section {
+  height: 60vh;
+  background-image: url("../images/parallax1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.parallax-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.parallax-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.parallax-text {
+  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+/* FOOTER */
+.footer-section {
+  background: #0b0b0b;
+  color: #aaa;
+}
+
+.footer-brand {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 0 0.75rem;
+  display: inline-block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-4px);
+  opacity: 0.8;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+
+@media (max-width: 991px) {
+  .hero-navbar .navbar-collapse {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+ .parallax-section {
+    height: 50vh;
+    background-position: center center;
+  }
+
+  .parallax-text {
+    font-size: 1.6rem;
+    padding: 0 1rem;
+  }
+
+
+  .project-info {
+    opacity: 1;
+  }
+  .modal-dialog {
+    margin: 0.5rem;
+  }
+
+  #modalVideo {
+    max-height: 70vh;
+  }
+    .about-section img {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .project-card {
+    border-radius: 10px;
+  }
+
+  .project-info h5 {
+    font-size: 0.95rem;
+  }
+
+  .project-info span {
+    font-size: 0.8rem;
+  }
+    .social-links a {
+    margin: 0 0.5rem;
+  }
+}
