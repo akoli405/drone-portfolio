@@ -305,7 +305,7 @@ body.light-theme .hero-overlay{
 /* PARALLAX SECTION */
 .parallax-section {
   height: 60vh;
-  background-image: url("../images/parallax1.jpg");
+  background-image: url("../images/parallax_RU.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -373,6 +373,8 @@ body.light-theme .hero-overlay{
  .parallax-section {
     height: 50vh;
     background-position: center center;
+    background-image: url("../images/parallax_RU_mobile.jpg");
+
   }
 
   .parallax-text {
