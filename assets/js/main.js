@@ -284,6 +284,36 @@ ScrollSmoother.create({
   effects: true
 });
 
+const allVideos = document.querySelectorAll("video");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const video = entry.target;
+    if (entry.isIntersecting) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  });
+}, { threshold: 0.3 });
+
+allVideos.forEach(video => {
+  observer.observe(video);
+});
+
+const carousel = document.getElementById('heroCarousel');
+
+carousel.addEventListener('slide.bs.carousel', function () {
+  const videos = carousel.querySelectorAll('video');
+  videos.forEach(video => video.pause());
+});
+
+carousel.addEventListener('slid.bs.carousel', function () {
+  const activeVideo = carousel.querySelector('.carousel-item.active video');
+  if (activeVideo) {
+    activeVideo.play().catch(() => {});
+  }
+});
 
 
 });

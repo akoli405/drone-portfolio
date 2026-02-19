@@ -1,36 +1,42 @@
 :root {
-  /* Default = Dark Theme */
+  /* DARK THEME */
   --bg-color: #0b0b0b;
   --text-color: #ffffff;
-  --section-bg: #0f0f0f;
+  --section-bg: rgba(0, 0, 0, 0.4);
   --card-bg: #1a1a1a;
   --overlay-bg: rgba(0, 0, 0, 0.6);
-    --bg-gradient: linear-gradient(
+  --muted-text: #cccccc;
+  --soft-text: #eeeeee;
+  --brand-box-bg: #1a1a1a;
+      --bg-gradient: linear-gradient(
     -45deg,
     #0b0b0b,
     #111111,
     #0f0f0f,
     #151515
   );
-
 }
 
-/* Light Theme Variables Override */
 body.light-theme {
+  /* LIGHT THEME */
   --bg-color: #ffffff;
   --text-color: #111111;
-  --section-bg: #f5f5f5;
-  --card-bg: #ffffff;
-  --overlay-bg: rgba(255, 255, 255, 0.2);
-  --bg-gradient: linear-gradient(
+  --section-bg: rgba(255, 255, 255, 0.7);
+  --card-bg: #f2f2f2;
+  --overlay-bg: rgba(255, 255, 255, 0.4);
+  --muted-text: #555555;
+  --soft-text: #333333;
+  --brand-box-bg: #ffffff;
+    --bg-gradient: linear-gradient(
     -45deg,
     #ffffff,
     #f5f5f5,
     #fafafa,
     #eeeeee
   );
-
+  
 }
+
 body.light-theme .theme-transition-overlay {
   background: linear-gradient(
     120deg,
@@ -42,6 +48,9 @@ body.light-theme .theme-transition-overlay {
   );
 }
 
+* {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
 
 html {
   scroll-behavior: smooth;
@@ -58,6 +67,7 @@ html {
 
 body {
   background: var(--bg-gradient);
+  color: var(--text-color);
   background-size: 400% 400%;
   animation: gradientShift 12s ease infinite;
 
@@ -92,8 +102,8 @@ body.transitioning {
 .brands-section,
 .footer-section {
   /* background-color: var(--section-bg); */
-  background: rgba(0,0,0,0.4);
-backdrop-filter: blur(20px);
+  background: var(--section-bg);
+  backdrop-filter: blur(20px);
     transition: background-color 0.3s ease;
 
 }
@@ -130,6 +140,7 @@ body.light-theme .hero-overlay{
   color:  var(--text-color);
   position: relative;
   overflow: hidden;
+    z-index: 1;
   /* padding-top: 80px; */
 
 }
@@ -174,7 +185,7 @@ body.light-theme .hero-overlay{
 }
 /* Navbar when scrolled */
 .hero-navbar.scrolled {
-  background: rgba(0, 0, 0, 0.75);
+  background: var(--overlay-bg);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   transition: background 0.3s ease;
@@ -283,12 +294,12 @@ body.light-theme .hero-overlay{
 
 .about-section p:first-of-type {
   font-size: 1.1rem;
-  color: #eee;
+  color: var(--soft-text);
 }
 
 
 .contact-section p {
-  color: #ccc;
+  color: var(--muted-text);
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -316,7 +327,7 @@ body.light-theme .hero-overlay{
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: var(--overlay-bg);
 }
 
 .parallax-section .container {
@@ -471,9 +482,6 @@ body.light-theme .hero-overlay{
 .brands-section h2 {
   color: var(--text-color);
 }
-.brands-section h2 {
-  color: #000;
-}
 
 .brands-wrapper {
   overflow: hidden;
@@ -491,7 +499,7 @@ body.light-theme .hero-overlay{
 .brand-box {
   width: 150px;
   height: 120px;
-  background: #1a1a1a;
+  background: var(--brand-box-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -670,4 +678,41 @@ body.light-theme .moon {
   overflow: hidden;
 }
 
+.cutout-section {
+  position: relative;
+  background: var(--section-bg);
+  padding: 100px 0;
+}
 
+.cutout-section::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: var(--bg-color);
+  border-bottom-left-radius: 50% 60px;
+  border-bottom-right-radius: 50% 60px;
+}
+
+.wave-cutout {
+  line-height: 0;
+}
+
+.wave-cutout svg {
+  display: block;
+  width: 100%;
+  height: 120px;
+}
+
+
+.wc-1 .wave-cutout svg{
+      background: var(--bg-color);
+}
+/* .wc-2 .wave-cutout svg{
+    background: green;
+}
+.wc-2 .wave-cutout svg path{
+  fill: red;
+} */
